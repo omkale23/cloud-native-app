@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: order-service
+  namespace: argocd
+spec:
+  destination:
+    namespace: default
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    path: helm-charts/order-service
+    repoURL: https://github.com/omkale23/cloud-native-app.git
+    targetRevision: main
+    helm:
+      releaseName: order-service
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
