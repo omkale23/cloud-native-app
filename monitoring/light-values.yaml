@@ -1,0 +1,44 @@
+# light-values.yaml
+grafana:
+  enabled: true
+  persistence:
+    enabled: false
+  adminPassword: "admin"
+  service:
+    type: LoadBalancer
+  testFramework:
+    enabled: false
+
+prometheus:
+  enabled: true
+  service:
+    type: LoadBalancer
+  prometheusSpec:
+    retention: "12h"
+    scrapeInterval: "30s"
+    evaluationInterval: "30s"
+    resources:
+      requests:
+        memory: 128Mi
+        cpu: 100m
+      limits:
+        memory: 512Mi
+        cpu: 300m
+
+alertmanager:
+  enabled: false
+
+kubeStateMetrics:
+  enabled: false
+
+nodeExporter:
+  enabled: false
+
+prometheusOperator:
+  resources:
+    requests:
+      cpu: 100m
+      memory: 128Mi
+    limits:
+      cpu: 300m
+      memory: 512Mi
