@@ -1,33 +1,30 @@
 variable "cluster_name" {
-  description = "EKS cluster name"
-  type        = string
-  default     = "cloud-native-eks"
-}
-
-variable "region" {
-  description = "AWS region to deploy resources"
-  type        = string
-  default     = "us-east-1"
-}
-
-variable "node_instance_type" {
-  description = "EC2 instance type for EKS worker nodes"
-  type        = string
-  default     = "t3.medium"
+  type    = string
+  default = "cloud-native-eks-v2"
 }
 
 variable "cluster_version" {
-  description = "Kubernetes version for the EKS cluster"
-  type        = string
-  default     = "1.29"
+  type    = string
+  default = "1.29"
+}
+
+variable "region" {
+  type    = string
+  default = "eu-north-1"
 }
 
 variable "vpc_id" {
-  description = "VPC ID where the EKS cluster will be deployed"
-  type        = string
+  type = string
+  description = "The VPC in which to deploy the EKS cluster"
 }
 
 variable "subnet_ids" {
+  type = list(string)
   description = "List of subnet IDs for the EKS worker nodes"
-  type        = list(string)
+}
+
+variable "node_instance_type" {
+  type    = string
+  default = "t3.medium"
+  description = "EC2 instance type for EKS worker nodes"
 }

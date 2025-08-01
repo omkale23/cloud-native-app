@@ -8,5 +8,5 @@ subnet_ids = [
 
 region = "eu-north-1"
 cluster_version = "1.29"
-cluster_name = "cloud-native-eks"
+cluster_name = "cloud-native-eks-v2"
 node_instance_type = "t3.medium"
